@@ -1,6 +1,6 @@
-# kbl — интерпретатор скриптов .kbl для Windows
+# kbl
 
-Свой язык программирования с C-подобным синтаксисом для автоматизации: управление
+ЯП с C-подобным синтаксисом для автоматизации: управление
 клавиатурой, мышью, окнами, процессами и буфером обмена. Один exe, без зависимостей,
 только WinAPI.
 
@@ -22,8 +22,8 @@ build.bat
 
 ```
 build\kbl.exe examples\hello.kbl
-build\kbl.exe --check script.kbl      :: только проверить синтаксис
-build\kbl.exe --no-safety script.kbl  :: без аварийной остановки
+build\kbl.exe --check script.kbl      
+build\kbl.exe --no-safety script.kbl  
 build\kbl.exe --version
 build\kbl.exe --help
 ```
@@ -215,18 +215,4 @@ type("Привет из kbl!\n");
 * Некоторые игры и защищённые приложения игнорируют `SendInput`.
 * Нет массивов, структур и горячих клавиш-обработчиков; скрипт линейный.
 
-## Устройство проекта
-
-```
-build.bat              сборка (MSVC)
-install-assoc.bat      привязка .kbl
-uninstall-assoc.bat    удаление привязки
-src/lexer.*            лексер
-src/parser.*           парсер и разрешение имён (слоты переменных, привязка вызовов)
-src/ast.h              узлы AST
-src/interp.*           интерпретатор
-src/builtins.*         встроенные функции (WinAPI)
-src/value.*            значения
-src/main.cpp           CLI, запуск, аварийная остановка
-examples/              примеры скриптов
-```
+assisted with claude haiku 5.5
