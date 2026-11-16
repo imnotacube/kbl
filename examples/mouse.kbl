@@ -1,0 +1,11 @@
+// mouse.kbl - плавно двигает курсор по квадрату
+int ox = mouse_x();
+int oy = mouse_y();
+println("старт: " + ox + ", " + oy);
+
+mouse_move(ox + 100, oy, 300);
+mouse_move(ox + 100, oy + 100, 300);
+mouse_move(ox, oy + 100, 300);
+mouse_move(ox, oy, 300);
+
+println("готово");

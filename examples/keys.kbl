@@ -1,0 +1,9 @@
+// keys.kbl - ждём нажатия F8
+// Аварийная остановка: Ctrl+Alt+Esc
+println("Нажмите F8...");
+
+while (!key_state("f8")) {
+    sleep(50);
+}
+
+println("F8 нажата!");

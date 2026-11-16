@@ -1,0 +1,11 @@
+// windows.kbl - работа с окнами
+string active = window_title(window_active());
+println("активное окно: " + active);
+
+// частичное совпадение заголовка (без учёта регистра)
+int h = window_find("kbl");
+println("окно консоли kbl: " + h);
+
+// точное совпадение: второй аргумент = true
+int exact = window_find("kbl - windows.kbl", true);
+println("точное совпадение: " + exact);
