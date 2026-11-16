@@ -1,5 +1,5 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 
 set "ROOT=%~dp0"
 set "VCVARS=%ProgramFiles%\Microsoft Visual Studio\18\Community\VC\Auxiliary\Build\vcvars64.bat"
@@ -12,13 +12,13 @@ if not exist "%VCVARS%" (
 )
 
 if not exist "%VCVARS%" (
-    echo [kbl] не найден vcvars64.bat - установите Visual Studio с рабочей нагрузкой "Разработка классических приложений на C++"
+    echo [kbl] vcvars64.bat not found - install Visual Studio with the "Desktop development with C++" workload
     exit /b 1
 )
 
 call "%VCVARS%" >nul
 if errorlevel 1 (
-    echo [kbl] не удалось инициализировать окружение MSVC
+    echo [kbl] failed to initialize the MSVC environment
     exit /b 1
 )
 
@@ -33,8 +33,8 @@ set "ERR=%errorlevel%"
 popd
 
 if not "%ERR%"=="0" (
-    echo [kbl] сборка не удалась
+    echo [kbl] build failed
     exit /b 1
 )
 
-echo [kbl] готово: %ROOT%build\kbl.exe
+echo [kbl] done: %ROOT%build\kbl.exe
